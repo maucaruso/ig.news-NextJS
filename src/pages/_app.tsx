@@ -6,12 +6,14 @@ import { SessionProvider as NextAuthProvider } from "next-auth/react";
 import "../styles/global.scss";
 
 function MyApp({ Component, pageProps }: AppProps) {
+  const AnyComponent = Component as any;
+  
   return (
     <>
       <NextAuthProvider session={pageProps.session}>
         <>
           <Header />
-          <Component {...pageProps} />
+          <AnyComponent {...pageProps} />
         </>
       </NextAuthProvider>
     </>
